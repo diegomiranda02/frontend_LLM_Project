@@ -1,0 +1,11 @@
+name: frontend_nlp
+dependencies:
+  - pip: 
+    - fastapi
+    - uvicorn
+    - httpx
+    - streamlit
+    - requests_html
+    - python-dotenv
+    - transformers
+    - tensorflow
