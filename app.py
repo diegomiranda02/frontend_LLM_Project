@@ -11,20 +11,20 @@ import time
 sess = HTMLSession()
 
 # call the server API routes to get an answer
-def get_data(question):    
-    api_url = f"http://localhost:8000/answer?question={question}"
+def get_data(command):    
+    api_url = f"http://localhost:8000/llm_api?command={command}"
     course_json = sess.get(api_url).text
     return course_json
 
 # insert fields on the interface
 st.title('NLP AI')
 st.title('Assistente')
-question = st.text_input("O que deseja?", "Gerar um relatorio?", disabled=False)
+command = st.text_input("O que deseja?", "Gerar um relatorio?", disabled=False)
 
 # check if the Send button was pressed and get the API Data
 if st.button("Enviar"):        
     with st.spinner('Consulta em andamento...'):
-        answer = get_data(question=question)
+        answer = get_data(command=command)
 
     # Print the API Response like it is being typed in real time
     st.markdown("## Resposta")
